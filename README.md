@@ -20,3 +20,10 @@ npx serve .
 6. Deploy the site.
 
 The booking buttons use phone and WhatsApp links for `8866305165`.
+
+
+## Deployment fix included
+- Restored `assets/hatchback.webp`, `sedan.webp`, `suv.webp`, and `tempo.webp`.
+- Replaced the external UploadNow manifest with `/manifest.webmanifest`.
+- Added local favicon and Apple touch icon assets.
+- Removed the broken `/favicon.ico` reference.
