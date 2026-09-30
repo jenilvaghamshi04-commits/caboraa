@@ -59,3 +59,13 @@ body{animation:pageIn .55s ease-out both}.site-header{animation:headerDrop .65s 
 @media(max-width:900px){.site-header{gap:16px}.site-header .brand-image{width:175px}}
 @media(max-width:600px){.site-header{height:78px;padding-left:16px;padding-right:16px;gap:10px}.site-header .brand-image{width:150px}.header-book{flex-shrink:0}.footer-brand .brand-image{width:220px}.confirmation-brand{width:76px;flex-basis:76px;padding:8px}}
 @media(max-width:360px){.site-header .brand-image{width:128px}.site-header{padding-left:12px;padding-right:12px}.header-book b{font-size:8px;padding:8px}.confirmation-brand{width:64px;flex-basis:64px}}
+
+/* Final approved wordmark: generous white presentation, original artwork */
+.site-header .brand,.footer-brand .brand{background:#fff;border-radius:12px;padding:5px 10px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.brand-image{width:205px;height:60px;object-fit:cover;object-position:center;max-width:100%}
+.footer-brand .brand-image{width:245px;height:72px}
+.cab-sign{background:#fff;border:0;padding:0 3px}.cab-sign img{object-fit:cover}
+.confirmation-brand{background:#fff;padding:4px;border:1px solid var(--line)}.confirmation-brand .brand-image{width:100%;height:29px;object-fit:cover}
+@media(max-width:900px){.site-header .brand-image{width:175px;height:52px}}
+@media(max-width:600px){.site-header .brand{padding:4px 7px;border-radius:9px}.site-header .brand-image{width:140px;height:42px}.footer-brand .brand-image{width:220px;height:65px}.confirmation-brand .brand-image{height:23px}}
+@media(max-width:360px){.site-header .brand-image{width:120px;height:36px}.site-header{gap:7px}.confirmation-brand .brand-image{height:19px}}
