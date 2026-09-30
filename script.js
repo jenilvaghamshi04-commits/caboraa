@@ -54,7 +54,7 @@ form.addEventListener('submit', e => {
   $('#routeSummary').textContent = `${tripType} · ${$('#pickup').value} → ${destination.value}`;
   $('#selectedName').textContent = selectedRide.name;
   $('#selectedPrice').textContent = `₹${selectedRide.price}/km`;
-  const bookingMessage = `Hi caboraa, I want to book a ${selectedRide.name}. ${tripType}: ${$('#pickup').value} to ${destination.value}. Pickup date: ${$('#rideDate').value}, time: ${$('#rideTime').value}.`;
+  const bookingMessage = "Hi Caboraa, I’d like to enquire about a cab.";
   $('.wa-confirm').href = `https://wa.me/918866305165?text=${encodeURIComponent(bookingMessage)}`;
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
