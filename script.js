@@ -34,7 +34,6 @@ document.addEventListener('click', e => {
 
 function selectRide(name, price) {
   selectedRide = { name, price: Number(price) };
-  if (document.getElementById('calcVehicle')) { document.getElementById('calcVehicle').value = name; updateFareEstimate(); }
   $$('.ride-card').forEach(card => card.classList.toggle('active', card.dataset.ride === name));
   $$('.cab-option').forEach(option => option.classList.toggle('active', option.dataset.ride === name));
 }
@@ -142,45 +141,3 @@ $$('.primary-cta, .book-car, .call-confirm, .wa-confirm').forEach(button => butt
   ripple.addEventListener('animationend', () => ripple.remove());
 }));
 
-
-// Fare estimate uses listed rates, with optional daily minimums explicitly selected.
-const calculatorRates = {
-  'Hatchback': { perKm: 10, dailyMinimum: 1500 },
-  'Sedan': { perKm: 12, dailyMinimum: 1800 },
-  'SUV / MUV': { perKm: 16, dailyMinimum: 2800 },
-  'Tempo Traveller': { perKm: 22, dailyMinimum: 4500 }
-};
-function calculateFareEstimate(vehicle, distance, extras, includeMinimum, days) {
-  const rate = calculatorRates[vehicle];
-  if (!rate || !Number.isFinite(distance) || distance <= 0 || distance > 100000 ||
-      !Number.isFinite(extras) || extras < 0 || extras > 10000000 ||
-      (includeMinimum && (!Number.isInteger(days) || days < 1 || days > 365))) return null;
-  const distanceFare = Math.round(distance * rate.perKm * 100) / 100;
-  const minimumFare = includeMinimum ? rate.dailyMinimum * days : 0;
-  const baseFare = Math.max(distanceFare, minimumFare);
-  return { distanceFare, minimumFare, baseFare, total: Math.round((baseFare + extras) * 100) / 100, perKm: rate.perKm };
-}
-const calcCurrency = n => new Intl.NumberFormat('en-IN', { style:'currency', currency:'INR', maximumFractionDigits:2 }).format(n);
-function updateFareEstimate() {
-  const distanceInput = document.getElementById('calcDistance');
-  const extrasInput = document.getElementById('calcExtras');
-  const includeMinimum = document.getElementById('calcMinimum').checked;
-  document.getElementById('calcDaysLabel').hidden = !includeMinimum;
-  const result = calculateFareEstimate(document.getElementById('calcVehicle').value,
-    distanceInput.value === '' ? NaN : Number(distanceInput.value),
-    extrasInput.value === '' ? 0 : Number(extrasInput.value),
-    includeMinimum, Number(document.getElementById('calcDays').value));
-  document.getElementById('calcTotal').textContent = result ? calcCurrency(result.total) : '—';
-  document.getElementById('calcBreakdown').textContent = result
-    ? distanceInput.value + ' km × ' + calcCurrency(result.perKm) + ' = ' + calcCurrency(result.distanceFare) +
-      (includeMinimum ? '. Daily minimum: ' + calcCurrency(result.minimumFare) + '; higher amount used.' : '') +
-      '. Extras: ' + calcCurrency(extrasInput.value === '' ? 0 : Number(extrasInput.value)) + '.'
-    : distanceInput.value === '' ? 'Enter a distance to see your estimate.' : 'Enter valid positive distance, non-negative extras and whole-number days.';
-}
-document.getElementById('fareCalculatorForm').addEventListener('submit', event => { event.preventDefault(); updateFareEstimate(); });
-['calcDistance','calcExtras','calcMinimum','calcDays'].forEach(id => document.getElementById(id).addEventListener('input', updateFareEstimate));
-document.getElementById('calcVehicle').addEventListener('change', event => {
-  const name = event.target.value;
-  selectRide(name, calculatorRates[name].perKm);
-});
-updateFareEstimate();
