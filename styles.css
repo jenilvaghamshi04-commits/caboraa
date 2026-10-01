@@ -70,3 +70,34 @@ body{animation:pageIn .55s ease-out both}.site-header{animation:headerDrop .65s 
 @media(max-width:900px){.site-header{gap:16px}.site-header .brand-image{width:175px;height:53px}}
 @media(max-width:600px){.site-header{height:76px;padding-left:16px;padding-right:16px;gap:10px}.site-header .brand-image{width:150px;height:46px}.header-book{flex-shrink:0}.footer-brand .brand-image{width:220px;height:67px}.confirmation-brand{width:70px}.confirmation-brand .brand-image{height:19px}.selected-ride{gap:8px}}
 @media(max-width:360px){.site-header .brand-image{width:128px;height:39px}.site-header{padding-left:12px;padding-right:12px;gap:7px}.header-book b{font-size:8px;padding:8px}.confirmation-brand{width:60px}.confirmation-brand .brand-image{height:16px}}
+
+/* Footer layout isolated from legacy global footer rules */
+footer.cab-footer{display:block;background:#080f1b;color:#f5f7f2;padding:64px clamp(20px,5vw,80px) 24px;border-top:1px solid #202b3b}
+.cab-footer div{display:block;color:inherit;font-size:inherit;flex-wrap:nowrap}
+.cab-footer .cab-footer-main{display:grid;grid-template-columns:minmax(240px,1.25fr) minmax(140px,.65fr) minmax(140px,.65fr) minmax(280px,1.2fr);align-items:start;gap:clamp(24px,3.5vw,56px)}
+.cab-footer .cab-footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:20px;min-width:0}
+.cab-footer-logo{display:block;width:220px;max-width:100%;height:66px;overflow:hidden}
+.cab-footer-logo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.cab-footer-brand p{max-width:300px;margin:0;font-size:14px;line-height:1.8;color:#aab5c5}
+.cab-footer-phone{display:flex;flex-direction:column;gap:8px;margin-top:3px}
+.cab-footer-phone>span{font-size:10px;font-weight:800;letter-spacing:1.6px;color:#8795a8}
+.cab-footer-phone strong{white-space:nowrap;color:#c9ff3d;font-size:20px;letter-spacing:.2px}
+.cab-footer nav.cab-footer-nav{display:flex;flex-direction:column;align-items:flex-start;gap:15px;padding-top:10px;color:#aab5c5;font-size:14px;min-width:0}
+.cab-footer-nav h2{margin:0 0 10px;font-size:14px;font-weight:800;color:#fff;letter-spacing:0;line-height:1.4}
+.cab-footer-nav a{line-height:1.5;transition:color .2s}
+.cab-footer-nav a:hover{color:#c9ff3d}
+.cab-footer .cab-footer-booking{background:#111d2d;border:1px solid #263449;border-radius:20px;padding:26px}
+.cab-footer-eyebrow{display:block;color:#c9ff3d;font-size:9px;letter-spacing:1.6px;font-weight:800;line-height:1.6}
+.cab-footer-booking h2{font-size:29px;line-height:1.15;letter-spacing:-.8px;margin:14px 0}
+.cab-footer-booking p{font-size:13px;color:#aab5c5;line-height:1.8;margin:0 0 23px}
+.cab-footer .cab-footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cab-footer-actions a{display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:10px;min-height:46px;padding:12px 14px;font-size:12px;font-weight:850;white-space:nowrap;transition:background .2s,transform .2s}
+.cab-footer-call{background:#1d2c40;border:1px solid #35465e;color:#fff}
+.cab-footer-wa{background:#c9ff3d;color:#09111f}
+.cab-footer-actions a:hover{transform:translateY(-2px)}.cab-footer-wa:hover{background:#aee817}.cab-footer-call:hover{background:#283c55}
+.cab-footer .cab-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #263142;padding-top:23px;margin-top:46px;color:#9aa8ba;font-size:11px;line-height:1.6}
+.cab-footer-bottom a{color:#c9ff3d;white-space:nowrap}
+.cab-footer a:focus-visible{outline:2px solid #c9ff3d;outline-offset:5px;border-radius:5px}
+@media(max-width:1100px){.cab-footer .cab-footer-main{grid-template-columns:minmax(200px,1.15fr) minmax(120px,.65fr) minmax(120px,.65fr);gap:32px}.cab-footer .cab-footer-booking{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.4fr;column-gap:30px;align-items:center}.cab-footer-booking .cab-footer-eyebrow,.cab-footer-booking h2{grid-column:1}.cab-footer-booking p{grid-column:2;grid-row:1/3;margin:0 0 14px}.cab-footer .cab-footer-actions{grid-column:2;grid-row:3}.cab-footer-booking h2{grid-row:2/4;margin-bottom:0}}
+@media(max-width:600px){footer.cab-footer{padding:42px 20px 24px}.cab-footer .cab-footer-main{grid-template-columns:1fr 1fr;gap:30px 24px}.cab-footer .cab-footer-brand{grid-column:1/-1;gap:15px}.cab-footer-brand p{max-width:360px}.cab-footer-logo{width:200px;height:60px}.cab-footer nav.cab-footer-nav{display:flex;gap:12px;padding-top:0}.cab-footer .cab-footer-booking{display:block;padding:24px;grid-column:1/-1}.cab-footer-booking h2{margin:12px 0;font-size:28px}.cab-footer-booking p{margin-bottom:20px}.cab-footer .cab-footer-actions{display:grid}.cab-footer .cab-footer-bottom{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px 24px;margin-top:32px;padding-top:20px}.cab-footer-bottom>span:first-child{flex-basis:100%}.cab-footer-bottom>a{margin-left:auto}.cab-footer-phone strong{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.cab-footer-actions a:hover{transform:none}}
